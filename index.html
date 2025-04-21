@@ -95,12 +95,14 @@
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.6s ease;
+            transition: transform 1s ease;
             transform-style: preserve-3d;
         }
 
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
+            transition: transform 1.5s;
+
         }
 
         .flip-card-front,
@@ -121,10 +123,11 @@
             box-sizing: border-box;
         }
 
-        .flip-card-front {
+        /* .flip-card-front {
             background: #fff;
             z-index: 2;
-        }
+         
+        } */
 
         .flip-card-front img {
             width: 100%;
@@ -462,6 +465,17 @@
             cursor: pointer;
         }
 
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
         /* modal hoam */
         .modal-hoam {
             display: none;
@@ -482,6 +496,7 @@
             border-radius: 5px;
             width: 80%;
             max-width: 600px;
+            animation: modalFadeIn 0.7s ease-out forwards;
         }
 
         .close-hoam {
@@ -500,248 +515,246 @@
 
         /* end */
         @media only screen and (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
+            body {
+                font-size: 14px;
+            }
 
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
 
-    a:hover {
-        text-decoration: underline;
-        text-decoration-color: blue;
-        color: blue;
-    }
+            a:hover {
+                text-decoration: underline;
+                text-decoration-color: blue;
+                color: blue;
+            }
 
-    li {
-        color: inherit;
-        text-decoration: none;
-    }
+            li {
+                color: inherit;
+                text-decoration: none;
+            }
 
-    li:hover {
-        text-decoration: underline;
-        text-decoration-color: blue;
-        color: blue;
-    }
+            li:hover {
+                text-decoration: underline;
+                text-decoration-color: blue;
+                color: blue;
+            }
 
-    .btn {
-        background-color: white;
-        color: black;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 14px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+            .btn {
+                background-color: white;
+                color: black;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 14px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
 
-    .btn:hover {
-        background-color: black;
-        transform: scale(1.1);
-        color: white;
-    }
+            .btn:hover {
+                background-color: black;
+                transform: scale(1.1);
+                color: white;
+            }
 
-    .komoditas-section {
-        padding: 30px 20px;
-        height: auto;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        text-align: center;
-    }
+            .komoditas-section {
+                padding: 30px 20px;
+                height: auto;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                text-align: center;
+            }
 
-    .komoditas-section h1 {
-        font-size: 28px;
-        text-shadow: 1px 1px 0 #ffffff,
-            2px 2px 0 #e4cccc,
-            3px 3px 4px rgba(255, 255, 255, 0.5);
-        color: black;
-        margin-bottom: 20px;
-    }
+            .komoditas-section h1 {
+                font-size: 28px;
+                text-shadow: 1px 1px 0 #ffffff,
+                    2px 2px 0 #e4cccc,
+                    3px 3px 4px rgba(255, 255, 255, 0.5);
+                color: black;
+                margin-bottom: 20px;
+            }
 
-    .komoditas-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 20px;
-    }
+            .komoditas-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 20px;
+            }
 
-    .komoditas-item img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        filter: grayscale(100%);
-        transition: filter 0.4s ease, transform 0.4s ease;
-        border: 2px solid rgb(0, 42, 255);
-    }
+            .komoditas-item img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                filter: grayscale(100%);
+                transition: filter 0.4s ease, transform 0.4s ease;
+                border: 2px solid rgb(0, 42, 255);
+            }
 
-    .komoditas-item img:hover {
-        filter: grayscale(0%);
-        transform: scale(1.05);
-    }
+            .komoditas-item img:hover {
+                filter: grayscale(0%);
+                transform: scale(1.05);
+            }
 
-    .komoditas-item p {
-        font-size: 14px;
-        font-weight: 600;
-    }
+            .komoditas-item p {
+                font-size: 14px;
+                font-weight: 600;
+            }
 
-    .hoam-section {
-        padding: 30px 20px;
-        text-align: center;
-        height: auto;
-    }
+            .hoam-section {
+                padding: 30px 20px;
+                text-align: center;
+                height: auto;
+            }
 
-    .hoam-section h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
+            .hoam-section h1 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
 
-    .hoam-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 20px;
-    }
+            .hoam-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 20px;
+            }
 
-    .hoam-item img {
-        width: 100%;
-        border-radius: 5px;
-        transition: transform 0.3s ease;
-    }
+            .hoam-item img {
+                width: 100%;
+                border-radius: 5px;
+                transition: transform 0.3s ease;
+            }
 
-    .hoam-item img:hover {
-        transform: scale(1.05);
-    }
+            .hoam-item img:hover {
+                transform: scale(1.05);
+            }
 
-    .hoam-item p {
-        font-size: 14px;
-        margin-top: 8px;
-    }
+            .hoam-item p {
+                font-size: 14px;
+                margin-top: 8px;
+            }
 
-    .flip-card {
-        width: 150px;
-        height: 200px;
-        margin: 10px auto;
-    }
+            .flip-card {
+                width: 150px;
+                height: 200px;
+                margin: 10px auto;
+                
+            }
 
-    .flip-card-inner {
-        transition: transform 0.6s ease;
-    }
 
-    .flip-card-front img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-    }
+            .flip-card-front img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                
+                border-radius: 10px;
+            }
 
-    .flip-card-front p {
-        font-size: 12px;
-        padding: 4px 6px;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
+            .flip-card-front p {
+                font-size: 12px;
+                padding: 4px 6px;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
 
-    .flip-card-back h3 {
-        font-size: 16px;
-        margin-bottom: 6px;
-    }
+            .flip-card-back h3 {
+                font-size: 14px;
+                margin-bottom: 14px;
+            }
 
-    .flip-card-back p {
-        font-size: 12px;
-    }
+            .flip-card-back p {
+                font-size: 12px;
+            }
 
-    .custom-modal,
-    .modal-kpl,
-    .modal-hoam {
-        display: none;
-        position: fixed;
-        z-index: 999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.6);
-    }
+            .custom-modal,
+            .modal-kpl,
+            .modal-hoam {
+                display: none;
+                position: fixed;
+                z-index: 999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
 
-    .modal-content,
-    .modal-content-kpl,
-    .modal-content-hoam {
-        background-color: #fff;
-        margin: 20% auto;
-        padding: 20px;
-        border-radius: 8px;
-        width: 90%;
-        max-width: 400px;
-    }
+            .modal-content,
+            .modal-content-kpl,
+            .modal-content-hoam {
+                background-color: #fff;
+                margin: 20% auto;
+                padding: 20px;
+                border-radius: 8px;
+                width: 90%;
+                max-width: 400px;
+            }
 
-    .close,
-    .close-kpl,
-    .close-hoam {
-        color: #aaa;
-        float: right;
-        font-size: 22px;
-        font-weight: bold;
-        cursor: pointer;
-    }
+            .close,
+            .close-kpl,
+            .close-hoam {
+                color: #aaa;
+                float: right;
+                font-size: 22px;
+                font-weight: bold;
+                cursor: pointer;
+            }
 
-    .close:hover,
-    .close-kpl:hover,
-    .close-hoam:hover {
-        color: red;
-    }
+            .close:hover,
+            .close-kpl:hover,
+            .close-hoam:hover {
+                color: red;
+            }
 
-    .contact-row {
-        padding: 30px 20px;
-        height: auto;
-        background-size: cover;
-        text-align: center;
-    }
+            .contact-row {
+                padding: 30px 20px;
+                height: auto;
+                background-size: cover;
+                text-align: center;
+            }
 
-    .ship-info {
-        font-size: 12px;
-        padding: 8px;
-        width: 100%;
-        position: absolute;
-        bottom: 5px;
-        left: 5px;
-    }
+            .ship-info {
+                font-size: 12px;
+                padding: 8px;
+                width: 100%;
+                position: absolute;
+                bottom: 5px;
+                left: 5px;
+            }
 
-    .image-wrapper img {
-        width: 100%;
-    }
+            .image-wrapper img {
+                width: 100%;
+            }
 
-    .image-text {
-        font-size: 12px;
-        padding: 5px 8px;
-    }
+            .image-text {
+                font-size: 12px;
+                padding: 5px 8px;
+            }
 
-    .title,
-    .deadweight {
-        font-size: 13px;
-    }
+            .title,
+            .deadweight {
+                font-size: 13px;
+            }
 
-    .action-button {
-        flex-direction: column;
-        gap: 6px;
-    }
+            .action-button {
+                flex-direction: column;
+                gap: 6px;
+            }
 
-    .plus-button,
-    .detail-link {
-        font-size: 14px;
-    }
+            .plus-button,
+            .detail-link {
+                font-size: 14px;
+            }
 
-    .swiper-slide {
-        width: 100%;
-    }
-}
-
+            .swiper-slide {
+                width: 100%;
+            }
+        }
     </style>
     <header class="header navbar-fixed-top">
         <nav class="navbar" role="navigation">
@@ -777,17 +790,19 @@
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
                                     href="#body">Home</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#about">Team</a></li>
+                                    href="#about">About</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#services">Services</a></li>
+                                    href="#work">Work</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#products">Products</a></li>
-                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#work">Credentials</a></li>
-                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#pricing">Pricing</a></li>
+                                    href="#mitra">Mitra</a></li>
+                            <!-- <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#work">Credentials</a></li> -->
+                            <!-- <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#pricing">Pricing</a></li> -->
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
                                     href="#contact">Contact</a></li>
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#maps">Maps</a></li>
                         </ul>
                     </div>
                 </div>
@@ -855,7 +870,7 @@
 
 
     <!-- End About -->
-    <div class="hoam-section" style="padding-top: 5%;">
+    <div id="about" class="hoam-section" style="padding-top: 5%;">
         <div class="hoam-grid">
             <div class="hoam-item flip-card">
                 <div class="flip-card-inner">
@@ -986,7 +1001,7 @@
         </div>
     </div>
     <!-- Latest Products -->
-    <div class="komoditas-section" style="padding-top: 15%;">
+    <div id="work" class="komoditas-section" style="padding-top: 15%;">
         <h1 style="text-align: center !important; color: #000000;">Work</h1>
         <div class="komoditas-grid" style="text-align: center !important; margin: auto;">
             <div class="komoditas-item">
@@ -1015,7 +1030,7 @@
 
 
     <!-- Clients -->
-    <div class="content-lg container">
+    <div id="mitra" class="content-lg container">
         <div class="text-component text-center" style=" color: #000000; text-align: left; font-size: 28px;">
             <strong> mitra Kami </strong>
         </div>
@@ -1129,7 +1144,7 @@
         <!-- End Contact List -->
 
         <!-- Google Map -->
-        <div class="map height-300">
+        <div class="map height-300" id="maps">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15868.740939975065!2d106.90288196699878!3d-6.105742249122235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a20248b5ca3c9%3A0x6da3665e25921236!2sSMP%20Negeri%2053%20Jakarta%20UTARA!5e0!3m2!1sid!2sid!4v1745096313103!5m2!1sid!2sid"
                 width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
