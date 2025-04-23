@@ -250,7 +250,7 @@ li:hover {
 .contact-row {
     padding: 60px 40px;
     color: #111;
-    background-image: url('img/navbar/footer3.png');
+/*     background-image: url('img/navbar/footer3.png'); */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-size: cover;
     background-position: center;
