@@ -14,6 +14,7 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
     <link href="css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="favicon.ico" />
     <!-- Slick Carousel CSS & JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -27,735 +28,7 @@
 
 
 <body id="body" data-spy="scroll" data-target=".header">
-    <style>
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        a:hover {
-            text-decoration: underline;
-            text-decoration-color: blue;
-            color: blue;
-        }
-
-        .komoditas-section h1,
-        .komoditas-section p {
-            text-shadow:
-                1px 1px 0 #ffffff,
-                2px 2px 0 #e4cccc,
-                3px 3px 4px rgba(255, 255, 255, 0.5);
-            color: black;
-        }
-
-        li {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        li:hover {
-            text-decoration: underline;
-            text-decoration-color: blue;
-            color: blue;
-        }
-
-        .btn {
-            background-color: white;
-            color: black;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: black;
-            transform: scale(1.1);
-            color: white;
-        }
-
-
-        .flip-card {
-            background-color: transparent;
-            width: 200px;
-            height: 250px;
-            perspective: 1000px;
-            margin: 20px auto;
-            position: relative;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 1s ease;
-            transform-style: preserve-3d;
-        }
-
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-            transition: transform 1.5s;
-
-        }
-
-        .flip-card-front,
-        .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            top: 0;
-            left: 0;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        /* .flip-card-front {
-            background: #fff;
-            z-index: 2;
-         
-        } */
-
-        .flip-card-front img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            display: block;
-        }
-
-        .flip-card-front p {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            margin: 0;
-            padding: 5px 10px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* semi-transparan biar kebaca */
-            border-radius: 5px;
-        }
-
-        .flip-card-back {
-            background-color: #f1f1f1;
-            transform: rotateY(180deg);
-            text-align: center;
-        }
-
-        .flip-card-back h3 {
-            margin-bottom: 10px;
-        }
-
-        .flip-card-back p {
-            font-size: 14px;
-        }
-
-        /* modal */
-        .custom-modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-
-        .action-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .image-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        .image-wrapper img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .image-text {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-
-
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 500px;
-            position: relative;
-            animation: fadeIn 0.4s;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: red;
-        }
-
-        /* hoam */
-        .hoam-section {
-            padding: 60px 40px;
-            height: auto;
-            color: #111;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .hoam-section h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-
-        .hoam-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 50px;
-        }
-
-        .hoam-item {
-            text-align: center;
-            width: 100%;
-        }
-
-        .hoam-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            object-fit: cover;
-            margin-bottom: 10px;
-            transition: filter 0.4s ease, transform 0.4s ease;
-        }
-
-        .hoam-item img:hover {
-            transform: scale(1.1);
-        }
-
-        .hoam-item p {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        /* end */
-        .contact-row {
-            padding: 60px 40px;
-            color: #111;
-            background-image: url('img/navbar/footer3.png');
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 50vh;
-            width: 100%;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .komoditas-section {
-            padding: 60px 40px;
-            color: #111;
-            background-image: url('img/back6.jpg');
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .komoditas-section h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        .komoditas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 50px;
-
-            max-width: 1000px;
-            height: auto;
-        }
-
-        .komoditas-item {
-            text-align: center;
-        }
-
-        .komoditas-item img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-            filter: grayscale(100%);
-            transition: filter 0.4s ease, transform 0.4s ease;
-            border: 3px solid rgb(0, 42, 255);
-            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-            ;
-        }
-
-        .komoditas-item img:hover {
-            filter: grayscale(0%);
-            transform: scale(1.1);
-        }
-
-        .komoditas-item p {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-
-        /* end */
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                top: 60px;
-            }
-
-            to {
-                opacity: 1;
-                top: 0;
-            }
-        }
-
-        /* end */
-        /* modalkpl */
-        .ship-slider {
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-
-
-        .ship-info {
-            padding: 10px;
-            width: 20%;
-            height: auto;
-        }
-
-
-
-        .plus-button,
-        .detail-link {
-            display: inline-block;
-            margin: 5px;
-            cursor: pointer;
-            color: #007bff;
-        }
-
-        .swiper-slide {
-            position: relative;
-        }
-
-        .ship-img {
-            width: 100%;
-            height: auto;
-        }
-
-        .ship-info {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .title,
-        .deadweight {
-            margin: 0;
-        }
-
-        .action-button {
-            display: flex;
-            gap: 10px;
-        }
-
-        .plus-button {
-            cursor: pointer;
-            font-size: 20px;
-            color: #fff;
-        }
-
-        .detail-link {
-            cursor: pointer;
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .modal-kpl {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal-content-kpl {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        .close-kpl {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-kpl:hover,
-        .close-kpl:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        /* modal hoam */
-        .modal-hoam {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal-content-hoam {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 600px;
-            animation: modalFadeIn 0.7s ease-out forwards;
-        }
-
-        .close-hoam {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-hoam:hover,
-        .close-hoam:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* end */
-        @media only screen and (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-
-            a {
-                text-decoration: none;
-                color: inherit;
-            }
-
-            a:hover {
-                text-decoration: underline;
-                text-decoration-color: blue;
-                color: blue;
-            }
-
-            li {
-                color: inherit;
-                text-decoration: none;
-            }
-
-            li:hover {
-                text-decoration: underline;
-                text-decoration-color: blue;
-                color: blue;
-            }
-
-            .btn {
-                background-color: white;
-                color: black;
-                border: none;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                font-weight: bold;
-                font-size: 14px;
-                transition: background-color 0.3s ease, transform 0.3s ease;
-            }
-
-            .btn:hover {
-                background-color: black;
-                transform: scale(1.1);
-                color: white;
-            }
-
-            .komoditas-section {
-                padding: 30px 20px;
-                height: auto;
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                text-align: center;
-            }
-
-            .komoditas-section h1 {
-                font-size: 28px;
-                text-shadow: 1px 1px 0 #ffffff,
-                    2px 2px 0 #e4cccc,
-                    3px 3px 4px rgba(255, 255, 255, 0.5);
-                color: black;
-                margin-bottom: 20px;
-            }
-
-            .komoditas-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 20px;
-            }
-
-            .komoditas-item img {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                object-fit: cover;
-                filter: grayscale(100%);
-                transition: filter 0.4s ease, transform 0.4s ease;
-                border: 2px solid rgb(0, 42, 255);
-            }
-
-            .komoditas-item img:hover {
-                filter: grayscale(0%);
-                transform: scale(1.05);
-            }
-
-            .komoditas-item p {
-                font-size: 14px;
-                font-weight: 600;
-            }
-
-            .hoam-section {
-                padding: 30px 20px;
-                text-align: center;
-                height: auto;
-            }
-
-            .hoam-section h1 {
-                font-size: 28px;
-                margin-bottom: 20px;
-            }
-
-            .hoam-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 20px;
-            }
-
-            .hoam-item img {
-                width: 100%;
-                border-radius: 5px;
-                transition: transform 0.3s ease;
-            }
-
-            .hoam-item img:hover {
-                transform: scale(1.05);
-            }
-
-            .hoam-item p {
-                font-size: 14px;
-                margin-top: 8px;
-            }
-
-            .flip-card {
-                width: 150px;
-                height: 200px;
-                margin: 10px auto;
-                
-            }
-
-
-            .flip-card-front img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                
-                border-radius: 10px;
-            }
-
-            .flip-card-front p {
-                font-size: 12px;
-                padding: 4px 6px;
-                background-color: rgba(0, 0, 0, 0.5);
-            }
-
-            .flip-card-back h3 {
-                font-size: 14px;
-                margin-bottom: 14px;
-            }
-
-            .flip-card-back p {
-                font-size: 12px;
-            }
-
-            .custom-modal,
-            .modal-kpl,
-            .modal-hoam {
-                display: none;
-                position: fixed;
-                z-index: 999;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.6);
-            }
-
-            .modal-content,
-            .modal-content-kpl,
-            .modal-content-hoam {
-                background-color: #fff;
-                margin: 20% auto;
-                padding: 20px;
-                border-radius: 8px;
-                width: 90%;
-                max-width: 400px;
-            }
-
-            .close,
-            .close-kpl,
-            .close-hoam {
-                color: #aaa;
-                float: right;
-                font-size: 22px;
-                font-weight: bold;
-                cursor: pointer;
-            }
-
-            .close:hover,
-            .close-kpl:hover,
-            .close-hoam:hover {
-                color: red;
-            }
-
-            .contact-row {
-                padding: 30px 20px;
-                height: auto;
-                background-size: cover;
-                text-align: center;
-            }
-
-            .ship-info {
-                font-size: 12px;
-                padding: 8px;
-                width: 100%;
-                position: absolute;
-                bottom: 5px;
-                left: 5px;
-            }
-
-            .image-wrapper img {
-                width: 100%;
-            }
-
-            .image-text {
-                font-size: 12px;
-                padding: 5px 8px;
-            }
-
-            .title,
-            .deadweight {
-                font-size: 13px;
-            }
-
-            .action-button {
-                flex-direction: column;
-                gap: 6px;
-            }
-
-            .plus-button,
-            .detail-link {
-                font-size: 14px;
-            }
-
-            .swiper-slide {
-                width: 100%;
-            }
-        }
-    </style>
+   
     <header class="header navbar-fixed-top">
         <nav class="navbar" role="navigation">
             <div class="container">
@@ -767,9 +40,9 @@
 
                     <div class="logo">
                         <a class="logo-wrap" href="#body">
-                            <img style="height: 55px;" class="logo-img logo-img-main" src="img/logonew.jpeg"
+                            <img style="height: 55px;" class="logo-img logo-img-main" src="img/newlogo-01.png"
                                 alt="azzaputerasamudera Logo">
-                            <img style="height: 55px;" class="logo-img logo-img-active" src="img/logonew.jpeg"
+                            <img style="height: 55px;" class="logo-img logo-img-active" src="img/newlogo-01.png"
                                 alt="azzaputerasamudera Dark Logo">
                         </a>
                     </div>
@@ -795,10 +68,6 @@
                                     href="#work">Work</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
                                     href="#mitra">Mitra</a></li>
-                            <!-- <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#work">Credentials</a></li> -->
-                            <!-- <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#pricing">Pricing</a></li> -->
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
                                     href="#contact">Contact</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
@@ -820,13 +89,12 @@
 
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img class="img-responsive" src="img/backround/02.jpeg" alt="Slider Image">
+                <img class="img-responsive" src="img/backround/laut03.jpg" alt="Slider Image">
                 <div class="container">
                     <div class="carousel-centered">
-                        <div class="margin-b-40">
-                            <h1 class="carousel-title">Hi-End Solutions</h1>
-                            <p class="color-white">Lorem ipsum dolor amet consectetur adipiscing dolore magna aliqua
-                                <br /> enim minim estudiat veniam siad venumus dolore
+                        <div class="margin-b-40" >
+                            <h1 class="carousel-title" style="color: #09004f !important;">Didirikan Di Atas <br/> Tanah Air Indonesia</h1>
+                            <p class="color-white" style="color: #000000 !important;">
                             </p>
                         </div>
                         <!-- <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Details</a> -->
@@ -834,7 +102,7 @@
                 </div>
             </div>
             <div class="item">
-                <img class="img-responsive" src="img/backround/01.jpg" alt="Slider Image">
+                <img class="img-responsive" src="img/backround/newlogo-03.jpeg" alt="Slider Image">
                 <div class="container">
                     <div class="carousel-centered">
                         <div class="margin-b-40">
@@ -848,7 +116,7 @@
                 </div>
             </div>
             <div class="item">
-                <img class="img-responsive" src="img/backround/03.jpg" alt="Slider Image">
+                <img class="img-responsive" src="img/backround/newlogo-04.jpeg" alt="Slider Image">
                 <div class="container">
                     <div class="carousel-centered">
                         <div class="margin-b-40">
@@ -867,8 +135,6 @@
 
     <!--========== PAGE LAYOUT ==========-->
     <!-- About -->
-
-
     <!-- End About -->
     <div id="about" class="hoam-section" style="padding-top: 5%;">
         <div class="hoam-grid">
@@ -917,49 +183,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hoam-item flip-card">
-                <div class="flip-card-inner">
-                    <!-- Sisi Depan -->
-                    <div class="flip-card-front">
-                        <img src="img/navbar/cleaning.jpg" alt="cleaning">
-                        <p><strong>....</strong></p>
-                    </div>
-
-                    <!-- Sisi Belakang -->
-                    <div class="flip-card-back">
-                        <h3>Keterangan</h3>
-                        <p>nikel bara adalah sumber energi yang digunakan untuk pembangkit listrik dan industri berat.
-                        </p>
-                        <div class="action-wrapper">
-                            <button class="btn btn-primary" id="hoam3"><i class="fa fa-plus"
-                                    aria-hidden="true"></i></button>
-                            <div class="detail-hoam3">Detail</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hoam-item flip-card">
-                <div class="flip-card-inner">
-                    <!-- Sisi Depan -->
-                    <div class="flip-card-front">
-                        <img src="img/navbar/gatau.jpg" alt="kapal">
-                        <p><strong>..........</strong></p>
-                    </div>
-
-                    <!-- Sisi Belakang -->
-                    <div class="flip-card-back">
-                        <h3>Keterangan</h3>
-                        <p>merah bara adalah sumber energi yang digunakan untuk pembangkit listrik dan industri berat.
-                        </p>
-                        <div class="action-wrapper">
-                            <button class="btn btn-primary" id="hoam4"><i class="fa fa-plus"
-                                    aria-hidden="true"></i></button>
-                            <div class="detail-hoam4">Detail</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+ 
         </div>
     </div>
     <div id="modalhoam1" class="modal-hoam">
@@ -1005,16 +229,16 @@
         <h1 style="text-align: center !important; color: #000000;">Work</h1>
         <div class="komoditas-grid" style="text-align: center !important; margin: auto;">
             <div class="komoditas-item">
-                <img src="img/batubara.jpeg" alt="Batu Bara">
-                <p><strong>Batu Bara</strong></p>
+                <img src="img/kegiatan/cleaning.jpg" alt="Batu Bara">
+                <p><strong>Cleaning Tangki</strong></p>
             </div>
             <div class="komoditas-item">
-                <img src="img/pasir.jpg" alt="Pasir Silika">
-                <p><strong>Pasir Silika</strong></p>
+                <img src="img/kegiatan/cat.jpg" alt="Pasir Silika">
+                <p><strong>Pengecatan</strong></p>
             </div>
             <div class="komoditas-item">
-                <img src="img/nikel.jpeg" alt="Nikel">
-                <p><strong>Nikel</strong></p>
+                <img src="img/kegiatan/pengepelan.jpg" alt="Nikel">
+                <p><strong>Pengelapan</strong></p>
             </div>
 
         </div>
@@ -1031,33 +255,32 @@
 
     <!-- Clients -->
     <div id="mitra" class="content-lg container">
-        <div class="text-component text-center" style=" color: #000000; text-align: left; font-size: 28px;">
-            <strong> mitra Kami </strong>
+        <div id="mitra-head" class="text-component text-center" style=" color: #000000; text-align: center; font-size: 28px;">
+            <strong> Mitra Kami </strong>
         </div>
 
         <!-- Swiper Clients -->
         <div class="swiper-slider swiper-clients">
 
             <!-- Swiper Wrapper -->
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" style="text-align: center !important; gap: 200px;">
                 <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="img/clients/01.png" alt="Clients Logo">
+                    <a href="https://www.tantonet.com/">
+                    <img class="swiper-clients-img" src="img/mitra/tanto.jpg" alt="Clients Logo">
+                </a>
                 </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="img/clients/02.png" alt="Clients Logo">
+                <div class="swiper-slide" style="padding-top: 30px !important;">
+                    
+                    <a href="http://gol-shipping.com/">
+                    <img class="swiper-clients-img" src="img/mitra/gold.jpg" alt="Clients Logo">
+                    </a>
                 </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="img/clients/03.png" alt="Clients Logo">
+                <div class="swiper-slide" style="padding-bottom: 30px !important;">
+                    <a href="https://lumososhipping.com/">
+                    <img class="swiper-clients-img" src="img/mitra/lumoso.jpg" alt="Clients Logo">
+                </a>
                 </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="img/clients/04.png" alt="Clients Logo">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="img/clients/05.png" alt="Clients Logo">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="img/clients/06.png" alt="Clients Logo">
-                </div>
+               
             </div>
             <!-- End Swiper Wrapper -->
         </div>
@@ -1065,24 +288,6 @@
     </div>
     <!-- End Clients -->
     </div>
-    <!-- End Work -->
-
-    <!-- Services -->
-    <!-- Swiper Container -->
-
-
-
-    <!-- Informasi dan tombol seperti sebelumnya -->
-
-
-
-    <!-- Modal tetap sama -->
-
-
-
-    <!-- End Service -->
-
-
     <!-- Contact -->
     <div id="contact">
         <!-- Contact List -->
@@ -1146,7 +351,7 @@
         <!-- Google Map -->
         <div class="map height-300" id="maps">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15868.740939975065!2d106.90288196699878!3d-6.105742249122235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a20248b5ca3c9%3A0x6da3665e25921236!2sSMP%20Negeri%2053%20Jakarta%20UTARA!5e0!3m2!1sid!2sid!4v1745096313103!5m2!1sid!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.94925336153705!2d106.92449164597943!3d-6.105361663559586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a203b36981aeb%3A0x2e8bddba20306054!2sJl.%20Kalibaru%20Barat%20IV%20No.10%2C%20RT.6%2FRW.1%2C%20Kali%20Baru%2C%20Kec.%20Cilincing%2C%20Jkt%20Utara%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2014110!5e0!3m2!1sid!2sid!4v1745420617973!5m2!1sid!2sid"
                 width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
@@ -1155,13 +360,7 @@
 
     <!--========== FOOTER ==========-->
     <footer class="footer">
-        <!-- Links -->
-
-        <!-- End Links -->
-
-        <!-- Copyright -->
-
-        <!-- End Copyright -->
+      
     </footer>
     <!--========== END FOOTER ==========-->
 
@@ -1185,151 +384,11 @@
 
     <!-- PAGE LEVEL SCRIPTS -->
     <script src="js/layout.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
     <script src="js/components/wow.min.js" type="text/javascript"></script>
     <script src="js/components/swiper.min.js" type="text/javascript"></script>
     <script src="js/components/masonry.min.js" type="text/javascript"></script>
 
-
-    <!-- modal -->
-    <script>
-        $(document).ready(function () {
-            // modalhoam
-            var $modalhoam1 = $('#modalhoam1');
-
-
-            $('#hoam1, .detail-hoam1, .imgklikhoam1').on('click', function () {
-                $modalhoam1.show();
-            });
-
-            // modal-hoam2
-            var $modalhoam2 = $('#modalhoam2');
-            $('#hoam2, .detail-hoam2, .imgklikhoam2').on('click', function () {
-                $modalhoam2.show();
-            });
-            $('.detail-hoam2').on('click', function () {
-                $modalhoam2.show();
-            });
-
-            // modal-hoam3
-            var $modalhoam3 = $('#modalhoam3');
-            $('#hoam3, .detail-hoam3, .imgklikhoam3').on('click', function () {
-                $modalhoam3.show();
-            });
-            var $modalhoam4 = $('#modalhoam4');
-            $('#hoam4, .detail-hoam4, .imgklikhoam4').on('click', function () {
-                $modalhoam4.show();
-            });
-
-            $('.close-hoam').on('click', function () {
-                $modalhoam1.hide();
-                $modalhoam2.hide();
-                $modalhoam3.hide();
-                $modalhoam4.hide();
-            });
-            $(window).on('click', function (e) {
-                if ($(e.target).is($modalhoam1)) {
-                    $modalhoam1.hide();
-                    $modalhoam2.hide();
-                    $modalhoam3.hide();
-                    $modalhoam4.hide();
-                }
-            });
-            // end
-
-            // modal-kpl
-            var $modalkpl1 = $('#modalkpl1');
-
-
-            $('.plus-button1, .detail-link1, .imgklik1').on('click', function () {
-                $modalkpl1.show();
-            });
-
-            // modal-kpl2
-            var $modalkpl2 = $('#modalkpl2');
-            $('.plus-button2, .detail-link2, .imgklik2').on('click', function () {
-                $modalkpl2.show();
-            });
-            $('.detail-link2').on('click', function () {
-                $modalkpl2.show();
-            });
-
-            // modal-kpl3
-            var $modalkpl3 = $('#modalkpl3');
-            $('.plus-button3, .detail-link3, .imgklik3').on('click', function () {
-                $modalkpl3.show();
-            });
-
-            $('.close-kpl').on('click', function () {
-                $modalkpl1.hide();
-                $modalkpl2.hide();
-                $modalkpl3.hide();
-            });
-            $(window).on('click', function (e) {
-                if ($(e.target).is($modalkpl1)) {
-                    $modalkpl1.hide();
-                    $modalkpl2.hide();
-                    $modalkpl3.hide();
-                }
-            });
-
-
-
-
-            // modal-kpl2
-
-
-        });
-
-
-
-    </script>
-    <script>
-        $(document).ready(function () {
-            const swiper1 = new Swiper('#test', {
-                loop: false,
-                speed: 3000,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                slidesPerView: 1,
-                spaceBetween: 20,
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-
-            // Autoplay manual: geser setiap 5 detik
-            let currentSlide = 0;
-            const slideCount = swiper1.slides.length;
-
-            setInterval(() => {
-                currentSlide++;
-
-                if (currentSlide >= slideCount) {
-                    currentSlide = 0;
-                }
-
-                swiper1.slideTo(currentSlide);
-            }, 5000); // 5 detik — ubah sesuai kebutuhan
-
-            // Tes apakah tombol navigasi terdeteksi
-            console.log($('.swiper-button-next')); // jQuery version
-        });
-    </script>
-
-
-
-    <!-- end modal -->
 
 </body>
 <!-- END BODY -->
